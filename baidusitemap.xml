@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://monte3card.cn/deep1-md.html</loc>
+    <lastmod>2017-06-05T14:20:30.492Z</lastmod>
+    <data>
+        <display>
+        <title>深度学习（一）：Anaconda深度学习环境建立</title>
+        <pubTime>2017-06-05T12:53:13.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://monte3card.cn/aurora-test.html</loc>
+    <lastmod>2017-06-05T14:20:29.885Z</lastmod>
+    <data>
+        <display>
+        <title>Aurora 8B/10B初解</title>
+        <pubTime>2017-06-01T04:37:30.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://monte3card.cn/Test-PCIE.html</loc>
+    <lastmod>2017-05-27T10:08:47.161Z</lastmod>
+    <data>
+        <display>
+        <title>基于Virtex-7的PCIE-DDR3 DMA通信调试</title>
+        <pubTime>2017-05-25T14:16:19.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+</urlset>
