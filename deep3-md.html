@@ -87,16 +87,21 @@
 
 
 
-<meta name="description" content="Anaconda多环境管理针对不同应用需要不同版本python支持，比如Tensorflow只支持到python3.5.2，但是最新的Anaconda默认的已经为python3.6.1，这就需要使用conda来完成不同的应用环境的管理。  查看conda环境 conda info -e #查看当前系统下的环境列表 conda info    #查询当前环境的具体信息 conda list #列出此">
+<meta name="description" content="之前使用Keras构建了简单的前馈神经网络，并通过SGD方式进行训练，很好地已完成红酒分类任务。现在我们通过复杂一些的任务来看看BP神经网络的性能。我们选择mnist手写数字库来进行测试，Keras包含了这个数据库，可以通过下面的方式来调用此数据库： #通过Keras导入mnist数据库 from keras.datasets import mnist # keras中的mnist数据集已经被划分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习（一）：Anaconda深度学习环境建立">
-<meta property="og:url" content="http://monte3card.cn/deep1-md.html">
+<meta property="og:title" content="深度学习（二）：Keras初探：多层感知机">
+<meta property="og:url" content="http://monte3card.cn/deep3-md.html">
 <meta property="og:site_name" content="Monte3card&#39;s Blog">
-<meta property="og:description" content="Anaconda多环境管理针对不同应用需要不同版本python支持，比如Tensorflow只支持到python3.5.2，但是最新的Anaconda默认的已经为python3.6.1，这就需要使用conda来完成不同的应用环境的管理。  查看conda环境 conda info -e #查看当前系统下的环境列表 conda info    #查询当前环境的具体信息 conda list #列出此">
-<meta property="og:updated_time" content="2017-06-05T14:20:30.492Z">
+<meta property="og:description" content="之前使用Keras构建了简单的前馈神经网络，并通过SGD方式进行训练，很好地已完成红酒分类任务。现在我们通过复杂一些的任务来看看BP神经网络的性能。我们选择mnist手写数字库来进行测试，Keras包含了这个数据库，可以通过下面的方式来调用此数据库： #通过Keras导入mnist数据库 from keras.datasets import mnist # keras中的mnist数据集已经被划分">
+<meta property="og:image" content="http://oqikzdw43.bkt.clouddn.com/demo1.png">
+<meta property="og:image" content="http://oqikzdw43.bkt.clouddn.com/demo2.png">
+<meta property="og:image" content="http://oqikzdw43.bkt.clouddn.com/demo3.png">
+<meta property="og:image" content="http://oqikzdw43.bkt.clouddn.com/summary.png">
+<meta property="og:updated_time" content="2017-06-12T05:20:19.889Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深度学习（一）：Anaconda深度学习环境建立">
-<meta name="twitter:description" content="Anaconda多环境管理针对不同应用需要不同版本python支持，比如Tensorflow只支持到python3.5.2，但是最新的Anaconda默认的已经为python3.6.1，这就需要使用conda来完成不同的应用环境的管理。  查看conda环境 conda info -e #查看当前系统下的环境列表 conda info    #查询当前环境的具体信息 conda list #列出此">
+<meta name="twitter:title" content="深度学习（二）：Keras初探：多层感知机">
+<meta name="twitter:description" content="之前使用Keras构建了简单的前馈神经网络，并通过SGD方式进行训练，很好地已完成红酒分类任务。现在我们通过复杂一些的任务来看看BP神经网络的性能。我们选择mnist手写数字库来进行测试，Keras包含了这个数据库，可以通过下面的方式来调用此数据库： #通过Keras导入mnist数据库 from keras.datasets import mnist # keras中的mnist数据集已经被划分">
+<meta name="twitter:image" content="http://oqikzdw43.bkt.clouddn.com/demo1.png">
 
 
 
@@ -124,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://monte3card.cn/deep1-md.html"/>
+  <link rel="canonical" href="http://monte3card.cn/deep3-md.html"/>
 
 
 
 
 
-  <title> 深度学习（一）：Anaconda深度学习环境建立 | Monte3card's Blog </title>
+  <title> 深度学习（二）：Keras初探：多层感知机 | Monte3card's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -249,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://monte3card.cn/deep1-md.html">
+    <link itemprop="mainEntityOfPage" href="http://monte3card.cn/deep3-md.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Monte3card">
@@ -270,7 +275,7 @@
             
             
               
-                深度学习（一）：Anaconda深度学习环境建立
+                深度学习（二）：Keras初探：多层感知机
               
             
           </h1>
@@ -285,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-05T20:53:13+08:00">
-                2017-06-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-10T22:16:33+08:00">
+                2017-06-10
               </time>
             
 
@@ -304,7 +309,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/deep1-md.html#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/deep3-md.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -331,7 +336,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  380
+                  461
                 </span>
               
 
@@ -366,43 +371,47 @@
       
 
       
-        <h3 id="Anaconda多环境管理"><a href="#Anaconda多环境管理" class="headerlink" title="Anaconda多环境管理"></a>Anaconda多环境管理</h3><p>针对不同应用需要不同版本python支持，比如Tensorflow只支持到python3.5.2，但是最新的Anaconda默认的已经为python3.6.1，这就需要使用conda来完成不同的应用环境的管理。</p>
+        <p>之前使用Keras构建了简单的前馈神经网络，并通过SGD方式进行训练，很好地已完成红酒分类任务。现在我们通过复杂一些的任务来看看BP神经网络的性能。我们选择mnist手写数字库来进行测试，Keras包含了这个数据库，可以通过下面的方式来调用此数据库：</p>
+<pre><code>#通过Keras导入mnist数据库
+from keras.datasets import mnist
+# keras中的mnist数据集已经被划分成了60,000个训练集，10,000个测试集的形式
+(X_train, y_train), (X_test, y_test) = mnist.load_data()
+</code></pre><p>读取数据并且构建Keras所需的训练集和测试集（张量）之后，开始构建神<br>经网络：</p>
 <ul>
-<li><p>查看conda环境</p>
-<pre><code>conda info -e #查看当前系统下的环境列表
-conda info    #查询当前环境的具体信息
-conda list #列出此环境下安装的包
-</code></pre></li>
-<li><p>创建conda环境</p>
-<pre><code>conda create -n env_name #创建conda环境
-conda create -n env_name python=3.5.2  #构建基于python3.5.2的conda环境，并且安装依赖包。
-</code></pre></li>
-<li><p>切换conda环境</p>
-<pre><code>activate env_name #切换到新环境
-activate root  #切换到root环境
-deactivate env_name #退出当前环境
-</code></pre></li>
-<li><p>删除conda环境</p>
-<pre><code>conda remove -n env_name --all
+<li><p>多层感知机（增加dropout层）</p>
+<pre><code>model.add(Dense(256, activation=&apos;relu&apos;, input_dim=784))
+model.add(Dropout(0.2))
+model.add(Dense(256, activation=&apos;relu&apos;))
+model.add(Dropout(0.2))
+model.add(Dense(10, activation=&apos;softmax&apos;))
 </code></pre></li>
 </ul>
-<p>参考资料 [1] <a href="https://zhuanlan.zhihu.com/p/22678445" target="_blank" rel="external">使用conda管理python环境</a> </p>
-<p>注[1] 在Anaconda Navigaor中的Environments可看到多个conda环境。</p>
-<h3 id="安装tensorflow"><a href="#安装tensorflow" class="headerlink" title="安装tensorflow"></a>安装tensorflow</h3><pre><code>conda create -n tensorflow python=3.5.2
-activate tensorflow
-#Tensorflow based on CPU
-(tensorflow)C:&gt; pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow-1.1.0-cp35-cp35m-win_amd64.whl 
-#Tensorflow based on GPU
-(tensorflow)C:&gt; pip install --ignore-installed --upgrade https://storage.googleapis.com/tensorflow/windows/gpu/tensorflow_gpu-1.1.0-cp35-cp35m-win_amd64.whl 
-</code></pre><p>参考资料 [1] <a href="https://www.tensorflow.org/install/install_windows" target="_blank" rel="external">Installing TensorFlow on Windows</a></p>
-<h3 id="安装Keras（Deep-Learning-library-for-Theano-and-TensorFlow）"><a href="#安装Keras（Deep-Learning-library-for-Theano-and-TensorFlow）" class="headerlink" title="安装Keras（Deep Learning library for Theano and TensorFlow）"></a>安装Keras（Deep Learning library for Theano and TensorFlow）</h3><pre><code>(tensorflow)C:&gt; conda install scipy #在当前环境下安装scipy，keras需要
-(tensorflow)C:&gt; conda install jupyter #
-(tensorflow)C:&gt; conda install pandas  #
-(tensorflow)C:&gt; conda install scikit-learn
-(tensorflow)C:&gt; conda install seaborn
-(tensorflow)C:&gt; pip install keras
-</code></pre><h3 id="确定keras和tensorflow安装正确"><a href="#确定keras和tensorflow安装正确" class="headerlink" title="确定keras和tensorflow安装正确"></a>确定keras和tensorflow安装正确</h3><pre><code>(tensorflow)C:&gt; jupyter notebook #在tensorflow环境中打开jupyter notebook
-</code></pre><p>之后可以通过import tensorflow 和 import keras来判断安装是否正常。</p>
+<ul>
+<li><p>多层感知机</p>
+<pre><code>model.add(Dense(256, activation=&apos;relu&apos;, input_dim=784))
+model.add(Dense(256, activation=&apos;relu&apos;))
+model.add(Dense(10, activation=&apos;softmax&apos;))
+</code></pre></li>
+</ul>
+<ul>
+<li>简单前馈神经网络</li>
+</ul>
+<pre><code>model.add(Dense(256, activation=&apos;relu&apos;, input_dim=784))
+model.add(Dense(10, activation=&apos;softmax&apos;))
+</code></pre><p>之后通过编译训练，就可以分别得到不同神经网络的分类结果。</p>
+<pre><code>sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
+model.compile(loss=&apos;categorical_crossentropy&apos;,
+      optimizer=sgd,
+      metrics=[&apos;accuracy&apos;])
+hist=model.fit(train_x_scaled, y_train,
+  epochs=20,
+  batch_size=10,validation_data=(test_x_scaled, y_test))
+</code></pre><p>结果分析：比较图2、图3可以看到多层感知机要比简单前馈神经网络出现过拟合现象（虽然都不算很明显），而图1和图2相比较，可以看出增加dropout层之后的多层感知机出现过拟合现象更晚，说明dropout对过拟合是有一定抑制作用的。</p>
+<p><img src="http://oqikzdw43.bkt.clouddn.com/demo1.png" alt="多层感知机+dropout层"></p>
+<p><img src="http://oqikzdw43.bkt.clouddn.com/demo2.png" alt="多层感知机"></p>
+<p><img src="http://oqikzdw43.bkt.clouddn.com/demo3.png" alt="简单前馈神经网络"></p>
+<p>最后比较一下，三种神经网络的性能，比较明显多层感知器+dropout层要优化其它两种神经网络。（虽然相差不多）</p>
+<p><img src="http://oqikzdw43.bkt.clouddn.com/summary.png" alt="性能比较"></p>
 
       
     </div>
@@ -439,8 +448,8 @@ activate tensorflow
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/aurora-test.html" rel="next" title="Aurora 8B/10B初解">
-                <i class="fa fa-chevron-left"></i> Aurora 8B/10B初解
+              <a href="/deep2-md.html" rel="next" title="深度学习（二）：Keras初探：BP神经网络">
+                <i class="fa fa-chevron-left"></i> 深度学习（二）：Keras初探：BP神经网络
               </a>
             
           </div>
@@ -448,10 +457,6 @@ activate tensorflow
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/deep2-md.html" rel="prev" title="深度学习（二）：Keras初探：BP神经网络">
-                深度学习（二）：Keras初探：BP神经网络 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -500,17 +505,8 @@ activate tensorflow
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/timg.jpg"
@@ -554,22 +550,6 @@ activate tensorflow
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Anaconda多环境管理"><span class="nav-number">1.</span> <span class="nav-text">Anaconda多环境管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装tensorflow"><span class="nav-number">2.</span> <span class="nav-text">安装tensorflow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Keras（Deep-Learning-library-for-Theano-and-TensorFlow）"><span class="nav-number">3.</span> <span class="nav-text">安装Keras（Deep Learning library for Theano and TensorFlow）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确定keras和tensorflow安装正确"><span class="nav-number">4.</span> <span class="nav-text">确定keras和tensorflow安装正确</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
